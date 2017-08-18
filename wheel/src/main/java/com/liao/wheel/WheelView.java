@@ -109,40 +109,36 @@ public class WheelView extends View {
     private WheelRecycle recycle = new WheelRecycle(this);
 
     // Listeners
-    private List<OnWheelChangedListener> changingListeners = new LinkedList<OnWheelChangedListener>();
-    private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
-    private List<OnWheelClickedListener> clickingListeners = new LinkedList<OnWheelClickedListener>();
+    private List<OnWheelChangedListener> changingListeners = new LinkedList<>();
+    private List<OnWheelScrollListener> scrollingListeners = new LinkedList<>();
+    private List<OnWheelClickedListener> clickingListeners = new LinkedList<>();
 
     /**
      * Constructor
      */
-    public WheelView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        initData(context);
+    public WheelView(Context context) {
+        this(context, null);
     }
 
     /**
      * Constructor
      */
     public WheelView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initData(context);
+        this(context, attrs, 0);
     }
 
     /**
      * Constructor
      */
-    public WheelView(Context context) {
-        super(context);
-        initData(context);
+    public WheelView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initData();
     }
 
     /**
      * Initializes class data
-     *
-     * @param context the context
      */
-    private void initData(Context context) {
+    private void initData() {
         scroller = new WheelScroller(getContext(), scrollingListener);
     }
 
@@ -788,7 +784,7 @@ public class WheelView extends View {
      * Scroll the wheel
      *
      * @param itemsToScroll
-     * @param time        scrolling duration
+     * @param time          scrolling duration
      */
     public void scroll(int itemsToScroll, int time) {
         int distance = itemsToScroll * getItemHeight() - scrollingOffset;

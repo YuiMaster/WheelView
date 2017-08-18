@@ -65,6 +65,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ProvinceAndCityActivity"
+            android:label="ProvinceAndCityActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="kankan.wheel.extended.WHEEL_SAMPLE" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".SpeedActivity"
             android:label="Speed">
             <intent-filter>
